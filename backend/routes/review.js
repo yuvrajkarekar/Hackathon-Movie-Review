@@ -20,10 +20,9 @@ router.get('/shared', (req, res) => {
     })
 })
 
-router.post('/my', (req, res) => {
-    const { user_id } = req.body
+router.get('/my', (req, res) => {
     const sql = "SELECT * FROM reviews WHERE user_id = ?"
-    pool.query(sql, [user_id], (error, data) => {
+    pool.query(sql, [req.user_id], (error, data) => {
         console.log(error)
         res.send(result.createResult(error, data))
     })
@@ -39,9 +38,9 @@ router.post('/share', (req, res) => {
 })
 
 router.post('/create', (req, res) => {
-    const { movie_id, review, rating, user_id, modified } = req.body
+    const { movie_id, review, rating, modified } = req.body
     const sql = "INSERT INTO reviews(movie_id, review, rating, user_id, modified) VALUES(?, ?, ?, ?, ?)"
-    pool.query(sql, [movie_id, review, rating, user_id, modified], (error, data) => {
+    pool.query(sql, [movie_id, review, rating, req.user_id, modified], (error, data) => {
         console.log(error)
         res.send(result.createResult(error, data))
     })

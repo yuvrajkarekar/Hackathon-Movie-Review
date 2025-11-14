@@ -9,6 +9,8 @@ import ThemeProvider from './providers/ThemeProvider'
 import Register from './pages/Register/Register'
 import Movie from './pages/Movie/Movie'
 import CreateReview from './pages/CreateReview/CreateReview'
+import MyReview from './pages/MyReview/MyReview'
+
 
 function App() {
 
@@ -37,6 +39,10 @@ function App() {
             <Route
               path="/create-review/:id"
               element={<CreateReview />}
+            />
+            <Route
+              path="/my-reviews/"
+              element={<MyReview />}
             />
             <Route path="/" element={<Movie />} />
         <Route path="/movies" element={<Movie />} />
