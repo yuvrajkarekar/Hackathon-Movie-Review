@@ -10,8 +10,8 @@ function authorization(req, res, next) {
     if (token) {
       try {
         const payload = jwt.verify(token, config.secret)
-        req.headers.userId = payload.userId
-        req.userId = payload.userId
+        req.headers.user_id = payload.user_id
+        req.user_id = payload.user_id
         next()
       } catch (e) {
         res.send(result.createErrorResult('Invalid Token'))

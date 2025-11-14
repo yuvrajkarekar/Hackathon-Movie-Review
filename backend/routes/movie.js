@@ -3,9 +3,11 @@ const router = express.Router()
 const pool = require('../utils/db')
 const result = require('../utils/result')
 
-router.get('/',(res, res) => {
+router.get('/', (req, res) => {
     const sql = "SELECT * FROM movies"
     pool.query(sql, (error, data) => {
-        res.setEncoding(result.createResult(error, data))
+        res.send(result.createResult(error, data))
     })
 })
+
+module.exports = router
