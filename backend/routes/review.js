@@ -21,3 +21,7 @@ router.put('/edit', (req, res) => {
     })
 })
 
+router.delete('/delete', (req, res) => {
+    const {movie_id, user_id} = req.body
+    const sql = "DELETE FROM "
+})
