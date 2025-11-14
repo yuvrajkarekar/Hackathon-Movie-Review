@@ -5,13 +5,14 @@ CREATE TABLE shares (
     user_id integer
 );
 
-
+drop table reviews;
+drop table users;
 CREATE TABLE users (
     id integer auto_increment primary key,
     first_name varchar(50),
     last_name varchar(50),
     email varchar(50),
-    password varchar(50),
+    password varchar(150),
     mobile varchar(20),
     birth DATE
 );

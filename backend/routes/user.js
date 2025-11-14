@@ -1,19 +1,24 @@
 const express = require('express')
+const cryptoJs = require('crypto-js')
+const jwt = require('jsonwebtoken')
+
+
+const config = require('../utils/config')
 const router = express.Router()
 const pool = require('../utils/db')
 const result = require('../utils/result') 
 
 router.post('/register',async(req,res)=>{
-    const {fname,lname,email,password,mobile,birth} = req.body
+    const {first_name,last_name,email,password,mobile,birth} = req.body
     const sql=`INSERT INTO users(first_name,last_name,email,password,mobile,birth) values(?,?,?,?,?,?)`
     const encryptedPassword = String(cryptoJs.SHA256(password))
     
-    pool.query(sql,[fname,lname,email,encryptedPassword,mobile,birth],(error,data)=>{
+    pool.query(sql,[first_name,last_name,email,encryptedPassword,mobile,birth],(error,data)=>{
         res.send(result.createResult(error,data))
     }) 
 })
 
-router.get('/login',async(req,res)=>{
+router.post('/login',async(req,res)=>{
     const {email,password} = req.body
     const encryptedPassword = String(cryptoJs.SHA256(password))
   const sql = `SELECT * FROM users WHERE email = ? AND password = ?`
