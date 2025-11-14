@@ -11,6 +11,9 @@ function Navbar() {
         <li><Link to="/my-reviews">My Reviews</Link></li>
         <li><Link to="/shared-with-me">Shared With Me</Link></li>
         <li><Link to="/all-reviews">All Reviews</Link></li>
+        <li className="rnav-list"><Link to="/edit-profile">Edit Profile</Link></li>
+        <li className="rnav-list"><Link to="/change-password">Change Password</Link></li>
+        <li className="rnav-list"><Link to="/logout">Logout</Link></li>
       </ul>
     </nav>
   )

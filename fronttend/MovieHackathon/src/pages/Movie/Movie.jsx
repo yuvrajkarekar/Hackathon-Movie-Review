@@ -22,7 +22,10 @@ function Movie() {
   <h3>{movie.title}</h3>
   <p><strong>ID:</strong> {movie.id}</p>
   <p><strong>Release:</strong> {new Date(movie.releases).toLocaleDateString()}</p>
-</div>
+  <p><Link to={`/add-review/${movie.id}`}>
+            <button>Add Review</button>
+          </Link></p>
+  </div>
 
       ))}
     </div>
