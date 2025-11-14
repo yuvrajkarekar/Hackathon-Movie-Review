@@ -12,7 +12,7 @@ const app = express()
 //middleware
 app.use(cors())
 app.use(express.json())
-// app.use(authorization)
+app.use(authorization)
 app.use('/user', userRouter)
 app.use('/review', reviewRouter)
 app.use('/movie', movieRouter)

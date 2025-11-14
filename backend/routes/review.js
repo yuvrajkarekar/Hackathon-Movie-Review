@@ -12,7 +12,7 @@ router.get('/display', (req, res) => {
     })
 })
 
-router.get('/display/my', (req, res) => {
+router.post('/my', (req, res) => {
     const { user_id } = req.body
     const sql = "SELECT * FROM reviews WHERE user_id = ?"
     pool.query(sql, [user_id], (error, data) => {

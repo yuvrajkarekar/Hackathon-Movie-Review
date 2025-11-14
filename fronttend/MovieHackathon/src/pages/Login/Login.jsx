@@ -3,7 +3,7 @@ import './Login.css'
 import { toast } from 'react-toastify'
 import { login } from '../../services/users'
 import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../../providers/AuthProvider'
+import { useAuth } from '../../providers/useAuth'
 
 function Login() {
   // add the state members for inputs
