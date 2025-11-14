@@ -26,7 +26,7 @@ router.post('/login', async (req, res) => {
     if (data) {
       if (data.length != 0) {
         const payload = {
-          userId: data[0].id,
+          user_id: data[0].id,
         }
         const token = jwt.sign(payload, config.secret)
         const body = {
@@ -42,7 +42,7 @@ router.post('/login', async (req, res) => {
 
 router.get('/profile', (req, res) => {
   const sql = `SELECT first_name, last_name, mobile, email,birth FROM users WHERE id = ?`
-  pool.query(sql, [req.headers.user_id], (error, data) => {
+  pool.query(sql, [req.user_id], (error, data) => {
     res.send(result.createResult(error, data))
   })
 })
