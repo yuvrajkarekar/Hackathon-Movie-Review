@@ -3,7 +3,9 @@ import './Login.css'
 import { toast } from 'react-toastify'
 import { login } from '../../services/users'
 import { Link, useNavigate } from 'react-router-dom'
+
 import { useAuth } from '../../providers/useAuth'
+
 
 function Login() {
   // add the state members for inputs
@@ -29,13 +31,13 @@ function Login() {
 
         // get the token from response and cache it in local storage
         localStorage.setItem('token', response['data']['token'])
-        // localStorage.setItem('firstName', response['data']['firstName'])
-        // localStorage.setItem('lastName', response['data']['lastName'])
+        localStorage.setItem('first_name', response['data']['first_name'])
+        localStorage.setItem('last_name', response['data']['last_name'])
 
         // set the logged in user information
         setUser({
-          firstName: response['data']['firstName'],
-          lastName: response['data']['lastName'],
+          first_name: response['data']['first_name'],
+          last_name: response['data']['last_name'],
         })
 
         // navigate to the PropertyListing page
