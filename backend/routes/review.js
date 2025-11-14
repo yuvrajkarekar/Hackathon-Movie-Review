@@ -12,10 +12,26 @@ router.get('/display', (req, res) => {
     })
 })
 
+router.get('/shared', (req, res) => {
+    const sql = "SELECT * FROM reviews WHERE id IN (SELECT review_id FROM shares WHERE user_id = ?)"
+    pool.query(sql, [req.user_id], (error, data) => {
+        res.send(result.createResult(error, data))
+    })
+})
+
 router.post('/my', (req, res) => {
     const { user_id } = req.body
     const sql = "SELECT * FROM reviews WHERE user_id = ?"
     pool.query(sql, [user_id], (error, data) => {
+        console.log(error)
+        res.send(result.createResult(error, data))
+    })
+})
+
+router.post('/share', (req, res) => {
+    const { review_id, user_id } = req.body
+    const sql = "INSERT INTO shares(review_id, user_id) VALUES(?, ?)"
+    pool.query(sql, [review_id, user_id], (error, data) => {
         console.log(error)
         res.send(result.createResult(error, data))
     })
