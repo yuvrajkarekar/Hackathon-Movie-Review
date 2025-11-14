@@ -35,7 +35,7 @@ function App() {
               element={<Movie />}
             />
             <Route
-              path='create-review'
+              path="/create-review/:id"
               element={<CreateReview />}
             />
             <Route path="/" element={<Movie />} />
