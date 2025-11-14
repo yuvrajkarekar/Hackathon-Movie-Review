@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+
 const pool = require('../utils/db')
 const result = require('../utils/result')
 

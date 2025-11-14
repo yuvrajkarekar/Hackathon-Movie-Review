@@ -8,6 +8,7 @@ import { ToastContainer } from 'react-toastify'
 import ThemeProvider from './providers/ThemeProvider'
 import Register from './pages/Register/Register'
 import Movie from './pages/Movie/Movie'
+import CreateReview from './pages/CreateReview/CreateReview'
 
 function App() {
 
@@ -32,6 +33,10 @@ function App() {
             <Route
               path='movie'
               element={<Movie />}
+            />
+            <Route
+              path='create-review'
+              element={<CreateReview />}
             />
       </Routes>
        </AuthProvider>
