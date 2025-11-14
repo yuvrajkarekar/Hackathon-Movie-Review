@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getAllMovies } from '../../services/movies'
+import Navbar from '../../components/Navbar/Navbar'
 
 
 function Movie() {
@@ -12,6 +13,9 @@ function Movie() {
   }, [])
 
   return (
+    <div>
+      <Navbar />
+    
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem' }}>
       {movies.map(movie => (
         <div key={movie.id} style={{ border: '1px solid #ccc', padding: '1rem' }}>
@@ -21,6 +25,7 @@ function Movie() {
 </div>
 
       ))}
+    </div>
     </div>
   )
 }
