@@ -7,6 +7,7 @@ import AuthProvider from './providers/AuthProvider'
 import { ToastContainer } from 'react-toastify'
 import ThemeProvider from './providers/ThemeProvider'
 import Register from './pages/Register/Register'
+import Movie from './pages/Movie/Movie'
 
 function App() {
 
@@ -27,6 +28,10 @@ function App() {
             <Route
               path='register'
               element={<Register />}
+            />
+            <Route
+              path='movie'
+              element={<Movie />}
             />
       </Routes>
        </AuthProvider>

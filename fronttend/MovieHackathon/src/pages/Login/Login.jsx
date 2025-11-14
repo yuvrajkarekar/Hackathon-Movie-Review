@@ -41,7 +41,7 @@ function Login() {
         })
 
         // navigate to the PropertyListing page
-        navigate('/home/properties')
+        navigate('/movie')
       } else {
         toast.error(response['error'])
       }
