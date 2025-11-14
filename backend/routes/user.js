@@ -16,7 +16,7 @@ router.post('/register',async(req,res)=>{
 router.get('/login',async(req,res)=>{
     const {email,password} = req.body
     const encryptedPassword = String(cryptoJs.SHA256(password))
-  const sql = `SELECT * FROM user WHERE email = ? AND password = ?`
+  const sql = `SELECT * FROM users WHERE email = ? AND password = ?`
   pool.query(sql, [email, encryptedPassword], (error, data) => {
     if (data) {
       if (data.length != 0) {
@@ -33,5 +33,12 @@ router.get('/login',async(req,res)=>{
       } else res.send(result.createErrorResult('Invalid email or password'))
     } else res.send(result.createErrorResult(error))
   })
-
 })
+
+router.get('/profile',(req,res)=>{
+  const sql = `SELECT firstName, lastName, mobile, email,birth FROM user WHERE id = ?`
+  pool.query(sql, [req.headers.userId], (error, data) => {
+    res.send(result.createResult(error, data))
+  })
+})
+
