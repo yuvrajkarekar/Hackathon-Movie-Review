@@ -33,6 +33,11 @@ function App() {
               path='movie'
               element={<Movie />}
             />
+            <Route path="/" element={<Movie />} />
+        <Route path="/movies" element={<Movie />} />
+        {/* <Route path="/my-reviews" element={<MyReviews />} />
+        <Route path="/shared-with-me" element={<SharedWithMe />} />
+        <Route path="/all-reviews" element={<AllReviews />} /> */}
       </Routes>
        </AuthProvider>
       </ThemeProvider>
