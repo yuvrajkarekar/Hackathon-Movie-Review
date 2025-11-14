@@ -12,7 +12,10 @@ function CreateReview() {
   const navigate = useNavigate()
 
   const onSave = async() => {
-    setModified(new Date)
+     let date = new Date();
+    let mysqlDateTime = date.toISOString().slice(0, 19).replace('T', ' ');
+    //const fd = formatToMySQLDateTime(mysqlDateTime)
+    setModified(mysqlDateTime)
     if(review.length == 0) {
         toast.warn('Please Enter Review')
     } else if(rating == 0) {
@@ -20,7 +23,7 @@ function CreateReview() {
     }else{
         const response = await createReview(movie_id, review, rating,modified)
         if(response['status'] == 'success') {
-            toast.success('successfully added a Property')
+            toast.success('successfully added the Review')
             navigate('/movie')
         } else {
             toast.error(response['error'])

@@ -9,13 +9,11 @@ export async function createReview(movie_id, review, rating, modified) {
 
     // create headers with require token
     // send GET request and get the response
-    const response = await axios.post(url, {
+    const response = await axios.post(url,body, {
       headers: {
         token: localStorage.getItem('token'),
       },
-      body: {
-        movie_id, review, rating, modified
-      }
+
     })
 
     // return response body
