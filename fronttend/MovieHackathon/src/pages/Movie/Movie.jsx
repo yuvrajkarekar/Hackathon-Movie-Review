@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getAllMovies } from '../../services/movies'
 import Navbar from '../../components/Navbar/Navbar'
-
-
+import { Link } from 'react-router-dom'
 function Movie() {
   const [movies, setMovies] = useState([])
 
